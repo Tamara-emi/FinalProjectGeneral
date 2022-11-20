@@ -1,6 +1,7 @@
+
 from collections import OrderedDict
 great,major,strong,moderate,inc,regionName,mag,region_Name=[],[],[],[],[],[],[],[]
-with open(r"C:\Users\Bridget Kwofie\OneDrive - Ashesi University\Desktop\py\earthquakes (1).txt",'r') as file:
+with open(r"earthquakes.txt",'r') as file:
     for line in file:
         line=line.split()
         regionName.append(line[7:])
@@ -31,21 +32,20 @@ for i,j in zip(region_Name,newMag):
     else:
         earthDict[i][0]+=1
         earthDict[i][5]+=1
-earthDict=OrderedDict(sorted(earthquake.items()))
+earthDict=OrderedDict(sorted(earthDict.items()))
 
 
 
 
 for a,b in earthDict.items():
-    print(f"{a} {b})
+    print(f"{a} {b}")
           
 names,inconsequential,moderate,strong,major,great,overall=[],[],[],[],[],[],[]
 for i,j in earthDict.items():
     names.append(i)
-    for a,b,c,d,e,f in j:
-          inconsequential.append(a)
-          moderate.append(b)
-          strong.append(c)
-          major.append(d)
-          great.append(e)
-          overall.append(f)         
+    inconsequential.append(j[0])
+    moderate.append(j[1])
+    strong.append(j[2])
+    major.append(j[3])
+    great.append(j[4])
+    overall.append(j[5])         
